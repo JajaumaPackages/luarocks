@@ -9,7 +9,6 @@
 %endif
 
 %global luapkgdir %{_libdir}/lua/%{luaver}
-%global prever rc2
 
 
 %if 0%{?el5}
@@ -19,8 +18,8 @@
 %endif
 
 Name:           luarocks
-Version:        2.2.3
-Release:        0.3.%{prever}%{?dist}
+Version:        2.3.0
+Release:        1%{?dist}
 Summary:        A deployment and management system for Lua modules
 
 License:        MIT
@@ -30,7 +29,7 @@ License:        MIT
 Group:          Development/Tools
 %endif
 URL:            http://luarocks.org
-Source0:        http://luarocks.org/releases/luarocks-%{version}-%{prever}.tar.gz
+Source0:        http://luarocks.org/releases/luarocks-%{version}.tar.gz
 
 %if 0%{?el5}
 BuildRoot:      %(mktemp -ud %{_tmppath}/%{name}-%{version}-%{release}-XXXXXX)
@@ -103,6 +102,9 @@ make install DESTDIR=$RPM_BUILD_ROOT LUADIR=%{luapkgdir}
 
 
 %changelog
+* Sat Apr 16 2016 Jajauma's Packages <jajauma@yandex.ru> - 2.3.0-1
+- Update to the latest upstream release
+
 * Thu Feb 04 2016 Fedora Release Engineering <releng@fedoraproject.org> - 2.2.3-0.3.rc2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_24_Mass_Rebuild
 
